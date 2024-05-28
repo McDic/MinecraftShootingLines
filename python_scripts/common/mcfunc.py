@@ -33,6 +33,9 @@ class MCFunction:
 
     @property
     def name(self):
+        """
+        The name of this function in Minecraft commands.
+        """
         return self._function_name
 
     def raise_if_locked(self):
@@ -42,6 +45,10 @@ class MCFunction:
             )
 
     def add_command(self, command: str):
+        """
+        Add given command to this function.
+        If given command is a comment, there is no effect.
+        """
         self.raise_if_locked()
         command = command.strip()
         if command.startswith("#"):
@@ -49,6 +56,9 @@ class MCFunction:
         self._commands.append(command)
 
     def write(self):
+        """
+        Lock this function and write it to target file.
+        """
         self.raise_if_locked()
         self._locked = True
 
