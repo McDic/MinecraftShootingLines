@@ -24,3 +24,10 @@ debug/
 
 # Archives
 archives/
+
+# Python caches
+*.pyc
+**/__pycache__/
+
+# Generated data files
+shooting_lines/datapacks/shooting_lines/**/generated/*.mcfunction
