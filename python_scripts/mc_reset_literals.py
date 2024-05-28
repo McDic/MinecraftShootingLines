@@ -10,8 +10,11 @@ def main():
     Generate resetting literals.
     """
     reset_literal_function = MCFunction(
-        utils.get_datapack_path_auto(), "shooting_lines",
-        "reset", "common", "scoreboard_literals",
+        utils.get_datapack_path_auto(),
+        "shooting_lines",
+        "reset",
+        "common",
+        "scoreboard_literals",
     )
     reset_literal_function.add_command(set_literal(0))
     for base_num in range(1, 501):

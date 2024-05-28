@@ -4,7 +4,6 @@ from pathlib import Path
 from .constants import GENERATED_MCFUNCTION_PREFIX
 from .errors import DatapackError
 
-
 logger = logging.getLogger("mcfunc")
 
 
@@ -19,10 +18,11 @@ class MCFunction:
         path = path[:-1] + ("generated", path[-1])
 
         datapack_path = Path(datapack_path)
-        assert datapack_path.exists(), \
-            f"Given datapack path {datapack_path} does not exist"
+        assert (
+            datapack_path.exists()
+        ), f"Given datapack path {datapack_path} does not exist"
 
-        self._function_name: str = f"{namespace}:{"/".join(path)}"
+        self._function_name: str = "%s:%s" % (namespace, "/".join(path))
         self._commands: list[str] = []
         self._locked: bool = False
 
@@ -40,9 +40,7 @@ class MCFunction:
 
     def raise_if_locked(self):
         if self._locked:
-            raise DatapackError(
-                f"This MCFunction({self.name}) is already locked"
-            )
+            raise DatapackError(f"This MCFunction({self.name}) is already locked")
 
     def add_command(self, command: str):
         """
