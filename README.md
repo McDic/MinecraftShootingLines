@@ -11,7 +11,7 @@ When you run the server with [MinecraftLinux](https://github.com/McDic/Minecraft
 I recommend you to run following script to run the server.
 
 ```bash
-./run.sh --dir (THIS_DIRECTORY) -v 1.20 --Xmx 5G --nohup
+./run.sh --dir (THIS_DIRECTORY) -v 1.20 --Xmx 4G --nohup
 ```
 
 ## Directory structure
