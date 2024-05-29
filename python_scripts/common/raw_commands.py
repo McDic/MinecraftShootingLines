@@ -7,16 +7,20 @@ from .errors import DatapackError
 def fill(x1: int, y1: int, z1: int, x2: int, y2: int, z2: int, block: str) -> str:
     """
     Directly create `fill` command.
+    If the volume is only 1 block, then use `setblock` instead.
     """
-    return (
-        f"fill {min(x1, x2)} {min(y1, y2)} {min(z1, z2)} "
-        f"{max(x1, x2)} {max(y1, y2)} {max(z1, z2)} "
-        + (
-            block
-            if block.startswith(MINECRAFT_NAMESPACE_PREFIX)
-            else MINECRAFT_NAMESPACE_PREFIX + block
-        )
+    block = (
+        block
+        if block.startswith(MINECRAFT_NAMESPACE_PREFIX)
+        else MINECRAFT_NAMESPACE_PREFIX + block
     )
+    if x1 == x2 and y1 == y2 and z1 == z2:
+        return f"setblock {x1} {y1} {z1} {block}"
+    else:
+        return (
+            f"fill {min(x1, x2)} {min(y1, y2)} {min(z1, z2)} "
+            f"{max(x1, x2)} {max(y1, y2)} {max(z1, z2)} {block}"
+        )
 
 
 def fills(
