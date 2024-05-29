@@ -16,13 +16,10 @@ def main():
         "common",
         "scoreboard_literals",
     )
-    reset_literal_function.add_command(set_literal(0))
-    for base_num in range(1, 501):
-        reset_literal_function.add_command(set_literal(base_num))
-        reset_literal_function.add_command(set_literal(-base_num))
+    reset_literal_function.add_commands(set_literal(i) for i in range(-500, 501))
     reset_literal_function.write()
 
 
 if __name__ == "__main__":
-    utils.do_basic_config()
+    utils.do_basic_logging_config()
     main()

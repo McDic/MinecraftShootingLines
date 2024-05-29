@@ -5,5 +5,6 @@ SCRIPT_DIR=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 
 shopt -s nullglob
 for py in "$SCRIPT_DIR"/mc_*.py; do
+    echo "Running python script $py.."
     python3 "$py"
 done

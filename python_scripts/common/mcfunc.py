@@ -1,4 +1,5 @@
 import logging
+import typing
 from pathlib import Path
 
 from .constants import GENERATED_MCFUNCTION_PREFIX
@@ -45,13 +46,22 @@ class MCFunction:
     def add_command(self, command: str):
         """
         Add given command to this function.
-        If given command is a comment, there is no effect.
         """
         self.raise_if_locked()
         command = command.strip()
-        if command.startswith("#"):
-            return
         self._commands.append(command)
+
+    def add_commands(self, *commands: str | typing.Iterable[str]):
+        """
+        Add multiple commands in bulk.
+        This function also accepts any iterable that yield strings.
+        """
+        for arg in commands:
+            if isinstance(arg, str):
+                self.add_command(arg)
+            else:
+                for command in arg:
+                    self.add_command(command)
 
     def write(self):
         """
@@ -78,5 +88,7 @@ class MCFunction:
             command_file.write(GENERATED_MCFUNCTION_PREFIX)
             command_file.write("\n")
             for command in self._commands:
+                if command.startswith("#"):
+                    command_file.write("\n")
                 command_file.write(command)
                 command_file.write("\n")

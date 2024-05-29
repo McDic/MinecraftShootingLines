@@ -13,7 +13,10 @@ def get_datapack_path_auto() -> Path:
     )
 
 
-def do_basic_config():
+def do_basic_logging_config():
+    """
+    Do basic logging configs.
+    """
     logging.basicConfig(
         encoding="utf-8",
         level=logging.DEBUG,
