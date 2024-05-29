@@ -8,7 +8,7 @@ GENERATED_MCFUNCTION_PREFIX: typing.Final[
 
 DEFAULT_BLOCK_MODIFICATION_LIMIT: typing.Final[int] = 65536
 
-AVAILABLE_COLORS = typing.Literal[
+AVAILABLE_BLOCK_COLORS = typing.Literal[
     "white",
     "light_gray",
     "gray",

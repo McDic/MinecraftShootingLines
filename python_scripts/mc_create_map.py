@@ -1,14 +1,14 @@
 import typing
 
 from common import MCFunction, raw_commands, utils
-from common.constants import AVAILABLE_COLORS
+from common.constants import AVAILABLE_BLOCK_COLORS
 
 LEFT_END: typing.Final[int] = -64
 RIGHT_END: typing.Final[int] = 63
 Y_HIGH: typing.Final[int] = 255
 
 
-def concrete(color: AVAILABLE_COLORS) -> str:
+def concrete(color: AVAILABLE_BLOCK_COLORS) -> str:
     return "minecraft:%s_concrete" % (color,)
 
 
