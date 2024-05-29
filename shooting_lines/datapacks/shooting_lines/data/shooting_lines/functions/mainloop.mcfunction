@@ -12,7 +12,7 @@ effect give @a resistance infinite 10 true
 scoreboard players add @a sneak_for_slow 0
 effect give @a[scores={sneak_for_slow=..0}] speed infinite 15 true
 effect clear @a[scores={sneak_for_slow=..0}] slowness
-effect give @a[scores={sneak_for_slow=1..}] slowness infinite 15 true
-effect clear @a[scores={sneak_for_slow=1..}] speed
+effect give @a[scores={sneak_for_slow=1..},gamemode=adventure] slowness infinite 15 true
+effect clear @a[scores={sneak_for_slow=1..},gamemode=adventure] speed
 scoreboard players set @a[scores={sneak_for_slow=1..}] sneak_for_slow 0
 effect give @a jump_boost infinite 7 true
