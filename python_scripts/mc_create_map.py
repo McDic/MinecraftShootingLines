@@ -40,6 +40,7 @@ def main():
         "common",
         "map_barriers",
     )
+
     reset_map_bottom_visible_function.add_commands(
         # "# Remove everything",
         # raw_commands.fills(
@@ -51,10 +52,12 @@ def main():
         #     RIGHT_END + 2,
         #     "air",
         # ),
+        "# y=1 -> visible board",
+        "# y=0 -> fixed constant to determine inner/outer area",
         "# Outer area is black",
         raw_commands.fills(
             LEFT_END - 2,
-            1,
+            0,
             LEFT_END - 2,
             RIGHT_END + 2,
             1,
@@ -64,7 +67,7 @@ def main():
         "# Border area is gray",
         raw_commands.fills(
             LEFT_END + 3,
-            1,
+            0,
             LEFT_END + 3,
             RIGHT_END - 3,
             1,
@@ -72,14 +75,14 @@ def main():
             concrete("light_gray"),
         ),
         *[
-            raw_commands.fill(x, 1, z, x, 1, z, concrete("black"))
+            raw_commands.fill(x, 0, z, x, 1, z, concrete("black"))
             for x in [LEFT_END + 3, RIGHT_END - 3]
             for z in [LEFT_END + 3, RIGHT_END - 3]
         ],
         "# Inner area is white",
         raw_commands.fills(
             LEFT_END + 4,
-            1,
+            0,
             LEFT_END + 4,
             RIGHT_END - 4,
             1,
@@ -87,11 +90,13 @@ def main():
             concrete("white"),
         ),
     )
+
     reset_map_bottom_hidden_function.add_commands(
         raw_commands.fills(
-            LEFT_END - 2, 0, LEFT_END - 2, RIGHT_END + 2, -10, RIGHT_END + 2, "air"
+            LEFT_END - 2, -1, LEFT_END - 2, RIGHT_END + 2, -10, RIGHT_END + 2, "air"
         )
     )
+
     reset_map_barrier_function.add_commands(
         "# Wall barriers",
         raw_commands.fills(
@@ -141,7 +146,7 @@ def main():
                 RIGHT_END + 2,
                 "barrier",
             )
-            for y in range(40, 160, 20)
+            for y in range(20, 160, 20)
         ),
     )
     reset_map_bottom_visible_function.write()

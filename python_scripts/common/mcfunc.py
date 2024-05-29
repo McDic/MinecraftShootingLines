@@ -33,7 +33,7 @@ class MCFunction:
         self._path = self._path / f"{path[-1]}.mcfunction"
 
     @property
-    def name(self):
+    def name(self) -> str:
         """
         The name of this function in Minecraft commands.
         """
@@ -43,7 +43,7 @@ class MCFunction:
         if self._locked:
             raise DatapackError(f"This MCFunction({self.name}) is already locked")
 
-    def add_command(self, command: str):
+    def add_command(self, command: str) -> None:
         """
         Add given command to this function.
         """
@@ -51,7 +51,7 @@ class MCFunction:
         command = command.strip()
         self._commands.append(command)
 
-    def add_commands(self, *commands: str | typing.Iterable[str]):
+    def add_commands(self, *commands: str | typing.Iterable[str]) -> None:
         """
         Add multiple commands in bulk.
         This function also accepts any iterable that yield strings.
@@ -63,12 +63,13 @@ class MCFunction:
                 for command in arg:
                     self.add_command(command)
 
-    def write(self):
+    def write(self) -> None:
         """
         Lock this function and write it to target file.
         """
         self.raise_if_locked()
         self._locked = True
+        last_commented: bool = True
 
         if self._path.is_file():
             with open(self._path) as command_file:
@@ -89,6 +90,10 @@ class MCFunction:
             command_file.write("\n")
             for command in self._commands:
                 if command.startswith("#"):
-                    command_file.write("\n")
+                    if not last_commented:
+                        last_commented = True
+                        command_file.write("\n")
+                else:
+                    last_commented = False
                 command_file.write(command)
                 command_file.write("\n")
