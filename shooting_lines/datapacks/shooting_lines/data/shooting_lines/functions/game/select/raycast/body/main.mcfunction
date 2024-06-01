@@ -13,9 +13,9 @@ execute at @s if score $raycast_recursion_depth variables = $raycast_depth_since
 execute at @s if score $raycast_recursion_depth variables = $raycast_depth_since_phase1b variables run tp @s ~ 1 ~ ~ 0
 
 # Run phase 0~2
-execute if score $raycast_phase variables matches 0 run function shooting_lines:game/select/raycast/body/phase0
-execute if score $raycast_phase variables matches 1 run function shooting_lines:game/select/raycast/body/phase1a
-execute if score $raycast_phase variables matches 2 run function shooting_lines:game/select/raycast/body/phase1b
+execute at @s if score $raycast_phase variables matches 0 run function shooting_lines:game/select/raycast/body/phase0
+execute at @s if score $raycast_phase variables matches 1 run function shooting_lines:game/select/raycast/body/phase1a
+execute at @s if score $raycast_phase variables matches 2 run function shooting_lines:game/select/raycast/body/phase1b
 
 # Error check
 execute if score $raycast_recursion_depth variables matches 3000.. run return fail
