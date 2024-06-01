@@ -1,10 +1,8 @@
 import typing
 
 from common import MCFunction, raw_commands, utils
-from common.constants import AVAILABLE_BLOCK_COLORS
+from common.constants import AVAILABLE_BLOCK_COLORS, LEFT_END, RIGHT_END
 
-LEFT_END: typing.Final[int] = -64
-RIGHT_END: typing.Final[int] = 63
 Y_HIGH: typing.Final[int] = 255
 
 

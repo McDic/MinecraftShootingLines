@@ -40,7 +40,7 @@ and it is not listed in `Possible Blocks` section.
 | 20, 40, 60, ... | Standing floor | Barrier |
 | 1 | Visible board | Gray, Black, RGB concretes |
 | 0 | Determine inside/outside | Black, Gray concretes |
-| -1 | Directional dependencies | Brown glazed terracotta |
+| -1 | Directional dependencies / Outline occupy states | Brown glazed terracotta (inside), RGB concretes/wools (outline) |
 | -2 | Copied states (Temporary calculation) | Sandstones |
 | -3 | Recursive search flags | Bedrock |
 

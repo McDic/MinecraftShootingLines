@@ -1,2 +1,1 @@
-scoreboard players set $raycast_occupiable variables 0
-execute if block ~ 1 ~ minecraft:light_gray_concrete run scoreboard players set $raycast_occupiable variables 1
+execute align xyz store success score $raycast_occupiable variables run function shooting_lines:game/select/occupy/check

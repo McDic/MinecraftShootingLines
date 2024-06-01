@@ -26,3 +26,6 @@ AVAILABLE_BLOCK_COLORS = typing.Literal[
     "magenta",
     "pink",
 ]
+
+LEFT_END: typing.Final[int] = -64
+RIGHT_END: typing.Final[int] = 63
