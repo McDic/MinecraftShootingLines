@@ -1,7 +1,7 @@
 # Execute this function for each player.
 # This function will automatically generates arguments for particle color, occupying, and more.
 
-execute unless entity @s[x=-64,y=2,z=-64,dx=128,dy=300,dz=128,x_rotation=-30..90.1] run return fail
+execute unless entity @s[x=-59,y=2,z=-59,dx=118,dy=300,dz=118,x_rotation=-30..90.1] run return fail
 kill @e[type=minecraft:marker,tag=sl_raycasting]
 summon minecraft:marker ~ ~ ~ {Tags:["sl", "sl_raycasting"], Invulnerable: true}
 tp @e[type=minecraft:marker,tag=sl_raycasting] @s

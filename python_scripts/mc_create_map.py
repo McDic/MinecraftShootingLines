@@ -75,11 +75,11 @@ def main():
             concrete("light_gray"),
         ),
         *[
-            raw_commands.fill(x, 0, z, x, 1, z, concrete("black"))
+            raw_commands.fill(x, 0, z, x, 0, z, concrete("black"))
             for x in [LEFT_END + 3, RIGHT_END - 3]
             for z in [LEFT_END + 3, RIGHT_END - 3]
         ],
-        "# Inner area is white",
+        "# Inner area is also black",
         raw_commands.fills(
             LEFT_END + 4,
             0,
@@ -87,7 +87,7 @@ def main():
             RIGHT_END - 4,
             1,
             RIGHT_END - 4,
-            concrete("white"),
+            concrete("black"),
         ),
     )
 
@@ -106,7 +106,7 @@ def main():
             LEFT_END - 2,
             Y_HIGH,
             RIGHT_END + 2,
-            "barrier",
+            concrete("black"),
         ),
         raw_commands.fills(
             LEFT_END - 2,
@@ -115,7 +115,7 @@ def main():
             RIGHT_END + 2,
             Y_HIGH,
             RIGHT_END + 2,
-            "barrier",
+            concrete("black"),
         ),
         raw_commands.fills(
             RIGHT_END + 2,
@@ -124,7 +124,7 @@ def main():
             RIGHT_END + 2,
             Y_HIGH,
             LEFT_END - 2,
-            "barrier",
+            concrete("black"),
         ),
         raw_commands.fills(
             RIGHT_END + 2,
@@ -133,17 +133,17 @@ def main():
             LEFT_END - 2,
             Y_HIGH,
             LEFT_END - 2,
-            "barrier",
+            concrete("black"),
         ),
         "# Standing barriers",
         *(
             raw_commands.fills(
-                LEFT_END - 2,
+                LEFT_END - 1,
                 y,
-                LEFT_END - 2,
-                RIGHT_END + 2,
+                LEFT_END - 1,
+                RIGHT_END + 1,
                 y,
-                RIGHT_END + 2,
+                RIGHT_END + 1,
                 "barrier",
             )
             for y in range(20, 160, 20)

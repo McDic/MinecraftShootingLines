@@ -38,8 +38,8 @@ and it is not listed in `Possible Blocks` section.
 | Y value | Purposes | Possible Blocks |
 | :---: | :---: | :---: |
 | 20, 40, 60, ... | Standing floor | Barrier |
-| 1 | Visible board | White, Black concretes |
-| 0 | Determine inside/outside | White, Black, Gray concretes |
+| 1 | Visible board | Gray, Black, RGB concretes |
+| 0 | Determine inside/outside | Black, Gray concretes |
 | -1 | Directional dependencies | Brown glazed terracotta |
 | -2 | Copied states (Temporary calculation) | Sandstones |
 | -3 | Recursive search flags | Bedrock |

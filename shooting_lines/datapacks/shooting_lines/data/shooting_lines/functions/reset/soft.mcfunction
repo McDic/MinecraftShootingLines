@@ -6,6 +6,7 @@ function shooting_lines:reset/common/forceload
 kill @e[type=!minecraft:player]
 
 function shooting_lines:reset/common/data_storage_safe
+function shooting_lines:reset/common/worldborder
 
 function shooting_lines:reset/common/scoreboard_objectives_safe
 function shooting_lines:reset/common/generated/scoreboard_literals

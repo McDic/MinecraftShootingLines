@@ -9,6 +9,8 @@ execute at @s if score $raycast_phase variables matches 2 if block ~ 0 ~ minecra
 scoreboard players add $raycast_recursion_depth variables 1
 execute if score $raycast_phase variables matches 1.. run scoreboard players operation $raycast_depth_since_phase1a variables < $raycast_recursion_depth variables
 execute if score $raycast_phase variables matches 2.. run scoreboard players operation $raycast_depth_since_phase1b variables < $raycast_recursion_depth variables
+execute at @s if score $raycast_recursion_depth variables = $raycast_depth_since_phase1a variables align xyz run tp @s ~ ~ ~
+execute at @s if score $raycast_recursion_depth variables = $raycast_depth_since_phase1b variables run tp @s ~ 1 ~ ~ 0
 
 # Run phase 0~2
 execute if score $raycast_phase variables matches 0 run function shooting_lines:game/select/raycast/body/phase0
@@ -16,7 +18,7 @@ execute if score $raycast_phase variables matches 1 run function shooting_lines:
 execute if score $raycast_phase variables matches 2 run function shooting_lines:game/select/raycast/body/phase1b
 
 # Error check
-execute if score $raycast_recursion_depth variables matches 3000.. at @s run return run function shooting_lines:utils/report
+execute if score $raycast_recursion_depth variables matches 3000.. run return fail
 
 # Determine next
 execute as @s if score $raycast_phase variables matches 0..2 at @s run function shooting_lines:game/select/raycast/body/main
