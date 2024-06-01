@@ -2,6 +2,8 @@
 
 effect clear @s
 
+spawnpoint @s 0 41 0
+
 scoreboard players set @s welcome -1
 title @s title [{"text":"Welcome, ","bold":true,"color":"gray"},{"selector":"@s","bold":true,"color":"gray"}]
 title @s subtitle {"text":"Shooting Lines - Made by McDic","italic":true,"color":"gray"}

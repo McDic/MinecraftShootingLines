@@ -1,5 +1,8 @@
 # This should be the only registered function on #minecraft:tick.
 
+# Add global tick timestamp
+scoreboard players add $global_tick variables 1
+
 # Welcome
 scoreboard players add @a welcome 0
 execute as @a[scores={welcome=0}] at @s run function shooting_lines:welcome/common

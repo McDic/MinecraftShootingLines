@@ -14,6 +14,16 @@ scoreboard objectives remove settings
 scoreboard objectives add settings dummy
 scoreboard objectives remove sneak_for_slow
 scoreboard objectives add sneak_for_slow minecraft.custom:sneak_time
+scoreboard objectives remove variables
+scoreboard objectives add variables dummy
+scoreboard objectives remove variables_debug
+scoreboard objectives add variables_debug dummy {"text":"Debug Variables", "italic": true}
+scoreboard objectives remove gps_x
+scoreboard objectives remove gps_y
+scoreboard objectives remove gps_z
+scoreboard objectives add gps_x dummy
+scoreboard objectives add gps_y dummy
+scoreboard objectives add gps_z dummy
 
 # Team
 team remove spectators
@@ -31,8 +41,8 @@ team modify redteam collisionRule never
 team modify redteam nametagVisibility always
 
 team remove blueteam
-team add blueteam {"text":"Blue Player","color":"aqua","bold":true}
-team modify blueteam color aqua
+team add blueteam {"text":"Blue Player","color":"dark_blue","bold":true}
+team modify blueteam color dark_blue
 team modify blueteam collisionRule never
 team modify blueteam nametagVisibility always
 
