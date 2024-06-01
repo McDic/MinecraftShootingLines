@@ -1,4 +1,4 @@
-data modify storage sl: temp_args prepend value {color:"[1,1,1]",target:"@a"}
+data modify storage sl: temp_args prepend value {}
 
 execute if score $raycast_recursion_depth variables >= $raycast_depth_since_phase1b variables run data modify storage sl: temp_args[0].coord set value "~ 2 ~"
 execute if score $raycast_recursion_depth variables >= $raycast_depth_since_phase1a variables if score $raycast_depth_since_phase1b variables > $raycast_recursion_depth variables run data modify storage sl: temp_args[0].coord set value "~ ~ ~"
