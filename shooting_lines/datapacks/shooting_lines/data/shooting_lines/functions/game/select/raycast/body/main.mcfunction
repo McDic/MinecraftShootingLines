@@ -25,5 +25,5 @@ execute as @s if score $raycast_phase variables matches 0..2 at @s run function 
 execute as @s unless score $raycast_phase variables matches 0..2 at @s run function shooting_lines:game/select/raycast/body/finale
 
 # After everything is finished, if placeable then display particles
-execute as @s unless score $raycast_occupiable variables matches 0 if score $raycast_recursion_depth variables >= $raycast_depth_since_phase1a variables run function shooting_lines:game/select/raycast/body/display_particles/entry
+execute as @s if score $raycast_recursion_depth variables >= $raycast_depth_since_phase1a variables run function shooting_lines:game/select/raycast/body/display_particles/entry
 scoreboard players remove $raycast_recursion_depth variables 1

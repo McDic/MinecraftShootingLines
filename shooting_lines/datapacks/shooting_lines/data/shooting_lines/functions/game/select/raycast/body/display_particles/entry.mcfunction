@@ -6,6 +6,7 @@ execute if score $raycast_recursion_depth variables >= $raycast_depth_since_phas
 execute if score $current_team variables matches 1 run data modify storage sl: temp_args[0].color set value "[1,0,0]"
 execute if score $current_team variables matches 2 run data modify storage sl: temp_args[0].color set value "[0,0,1]"
 execute if score $current_team variables matches 3 run data modify storage sl: temp_args[0].color set value "[0,1,0]"
+execute if score $raycast_occupiable variables matches 0 run data modify storage sl: temp_args[0].color set value "[0.5,0.5,0.5]"
 execute if score $current_team variables matches 1 run data modify storage sl: temp_args[0].target set value "@a[team=redteam]"
 execute if score $current_team variables matches 2 run data modify storage sl: temp_args[0].target set value "@a[team=blueteam]"
 execute if score $current_team variables matches 3 run data modify storage sl: temp_args[0].target set value "@a[team=greenteam]"
